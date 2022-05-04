@@ -1,25 +1,23 @@
-const menu = {
-    selector: ".principal",
-    menuElement: function classe() {
-        return document.querySelector(this.selector);
-    },
+function getAddress() {
+    cep = document.querySelector("#cep");
+    url = "https://viacep.com.br/ws/" + cep.value + "/json/";
 
-    active() {
-        this.menuElement().classList.add("active");
-    }
+    returnAddress(url);
+
+
 }
 
-menu.active();
+async function returnAddress(url) {
+    const response = await fetch(url);
+    const json = await response.json();
+    setCampos(json);
+}
 
-btn = document.querySelector("#btn");
-
-btn.addEventListener("click", event => {
-    const teste = document.querySelector(menu.selector);
-    if (teste.classList.contains('active')) {
-        teste.classList.remove('active');
-    } else {
-        teste.classList.add('active');
-    }
-});
-
-// btn.click(menu.desable());
+function setCampos(campos) {
+    (document.querySelector('#Cep')).innerHTML = campos.cep;
+    (document.querySelector('#cidade')).innerHTML = campos.localidade;
+    (document.querySelector('#bairro')).innerHTML = campos.bairro;
+    (document.querySelector('#rua')).innerHTML = campos.logradouro;
+    (document.querySelector('#estado')).innerHTML = campos.uf;
+    (document.querySelector('#ibge')).innerHTML = campos.ibge;
+}
