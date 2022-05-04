@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #resposta {
+            margin-top: 10px;
+        }
+        
+        p {
+            display: inline;
+        }
+    </style>
+    <title>Busca Cep</title>
+</head>
+
+<body>
+    <header>
+        <h1>Busca endereço pelo CEP</h1>
+    </header>
+
+    <main id="container">
+        <section>
+            <form>
+                <input id="cep" type="text">
+                <button type="button" onclick="getAddress()">Buscar</button>
+            </form>
+        </section>
+
+        <section id="resposta">
+            <div>
+                Cep:
+                <p id="Cep"></p>
+            </div>
+            <div>
+                Cidade:
+                <p id="cidade"></p>
+            </div>
+            <div>
+                Estado:
+                <p id="estado"></p>
+            </div>
+            <div>
+                Bairro:
+                <p id="bairro"></p>
+            </div>
+            <div>
+                Rua:
+                <p id="rua"></p>
+            </div>
+            <div>
+                Ibge:
+                <p id="ibge"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
